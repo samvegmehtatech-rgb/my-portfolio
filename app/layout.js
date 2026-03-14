@@ -1,8 +1,13 @@
 import './globals.css'
+import SmoothScroll   from '../components/SmoothScroll'
+import CustomCursor   from '../components/CustomCursor'
+import ScrollProgress from '../components/ScrollProgress'
+import Navbar         from '../components/Navbar'
+import Footer         from '../components/Footer'
 
 export const metadata = {
-  title: 'Your Name — Software Developer',
-  description: 'Portfolio of Your Name, Software Developer & Engineer',
+  title:       'Your Name — Software Developer',
+  description: 'Portfolio of Your Name, Software Developer & Engineer based in Mumbai.',
 }
 
 export default function RootLayout({ children }) {
@@ -15,7 +20,15 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <SmoothScroll>
+          <CustomCursor />
+          <ScrollProgress />
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </SmoothScroll>
+      </body>
     </html>
   )
 }
