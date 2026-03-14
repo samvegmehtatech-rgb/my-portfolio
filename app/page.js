@@ -4,6 +4,10 @@ import Education      from '../components/sections/Education'
 import WorkExperience from '../components/sections/WorkExperience'
 import Projects       from '../components/sections/Projects'
 import Community      from '../components/sections/Community'
+import LifeFeed       from '../components/sections/LifeFeed'
+import Blog           from '../components/sections/Blog'
+import Guestbook      from '../components/sections/Guestbook'
+import Contact        from '../components/sections/Contact'
 
 export default function Home() {
   return (
@@ -14,6 +18,10 @@ export default function Home() {
       <WorkExperience />
       <Projects />
       <Community />
+      <LifeFeed />
+      <Blog />
+      <Guestbook />
+      <Contact />
     </>
   )
 }
