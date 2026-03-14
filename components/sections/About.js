@@ -10,6 +10,19 @@ const SKILLS = [
   'Azure', 'REST APIs'
 ]
 
+const AI_TOOLS = [
+  { name: 'Claude',        desc: 'Anthropic'        },
+  { name: 'ChatGPT',       desc: 'OpenAI'           },
+  { name: 'V0',            desc: 'Vercel'           },
+  { name: 'Cursor',        desc: 'AI Code Editor'   },
+  { name: 'GitHub Copilot',desc: 'Microsoft'        },
+  { name: 'Midjourney',    desc: 'Image Gen'        },
+  { name: 'Gemini',        desc: 'Google'           },
+  { name: 'Perplexity',    desc: 'AI Search'        },
+  { name: 'Bolt.new',      desc: 'StackBlitz'       },
+  { name: 'Runway',        desc: 'AI Video'         },
+]
+
 const VALUES = [
   {
     icon: '🌱', title: 'Continuous Learning',
@@ -26,6 +39,10 @@ const VALUES = [
   {
     icon: '✨', title: 'Craft & Quality',
     desc: 'Details matter — good enough is never good enough'
+  },
+  {
+    icon: '🤖', title: 'AI-First Mindset',
+    desc: 'I embrace AI as a superpower — using it to build faster, think deeper, and create things that once took entire teams.'
   },
 ]
 
@@ -178,6 +195,120 @@ export default function About() {
                   {skill}
                 </span>
               ))}
+            </div>
+
+            {/* ── AI Tools Section ── */}
+            <div style={{ marginTop: '48px' }}>
+
+              {/* Section Label */}
+              <p style={{
+                fontSize:      '12px',
+                letterSpacing: '0.15em',
+                color:         '#64748B',
+                marginBottom:  '8px',
+                textTransform: 'uppercase',
+                fontWeight:    '600',
+              }}>
+                AI Tools & Platforms
+              </p>
+
+              {/* Subtitle — smart line */}
+              <p style={{
+                fontSize:     '14px',
+                color:        '#64748B',
+                lineHeight:   '1.7',
+                marginBottom: '20px',
+                maxWidth:     '480px',
+                fontStyle:    'italic',
+              }}>
+                I don't just use AI — I build with it.
+                From prompting to production, I leverage
+                these tools to ship faster, smarter, and
+                better than ever before.
+              </p>
+
+              {/* AI Tools Grid */}
+              <div style={{
+                display:  'flex',
+                flexWrap: 'wrap',
+                gap:      '10px',
+              }}>
+                {AI_TOOLS.map((tool) => (
+                  <div key={tool.name} style={{
+                    background:    '#F8F9FA',
+                    border:        '1px solid #E2E8F0',
+                    borderRadius:  '10px',
+                    padding:       '8px 16px',
+                    display:       'flex',
+                    flexDirection: 'column',
+                    alignItems:    'flex-start',
+                    gap:           '2px',
+                    transition:    'all 0.2s ease',
+                    cursor:        'default',
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.background   = '#EFF6FF'
+                    e.currentTarget.style.borderColor  = '#2563EB'
+                    e.currentTarget.style.transform    = 'translateY(-2px)'
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.background   = '#F8F9FA'
+                    e.currentTarget.style.borderColor  = '#E2E8F0'
+                    e.currentTarget.style.transform    = 'translateY(0)'
+                  }}
+                  >
+                    <span style={{
+                      fontSize:   '13px',
+                      fontWeight: '600',
+                      color:      '#0A0A0A',
+                      fontFamily: 'JetBrains Mono, monospace',
+                    }}>
+                      {tool.name}
+                    </span>
+                    <span style={{
+                      fontSize: '11px',
+                      color:    '#64748B',
+                    }}>
+                      {tool.desc}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              {/* AI Builder Badge */}
+              <div style={{
+                marginTop:    '24px',
+                display:      'inline-flex',
+                alignItems:   'center',
+                gap:          '10px',
+                background:   'linear-gradient(135deg, #EFF6FF, #F5F3FF)',
+                border:       '1px solid #BFDBFE',
+                borderRadius: '12px',
+                padding:      '14px 20px',
+              }}>
+                <span style={{ fontSize: '24px' }}>🤖</span>
+                <div>
+                  <p style={{
+                    fontSize:   '14px',
+                    fontWeight: '700',
+                    color:      '#0A0A0A',
+                    margin:     0,
+                  }}>
+                    AI-Powered Developer
+                  </p>
+                  <p style={{
+                    fontSize:   '12px',
+                    color:      '#64748B',
+                    margin:     0,
+                    lineHeight: '1.5',
+                    maxWidth:   '320px',
+                  }}>
+                    Capable of building complete, production-ready
+                    projects end-to-end using AI tools —
+                    from idea to deployed product, fully independently.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
