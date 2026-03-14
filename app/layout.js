@@ -8,18 +8,17 @@ import ScrollToTop    from '../components/ScrollToTop'
 
 export const metadata = {
   title:       'Samveg Mehta — Software Developer',
-  description: 'Portfolio of Samveg Mehta, a Software Developer & Engineer based in Ahmedabad. Building scalable web applications and contributing to community.',
-  keywords:    'software developer, engineer, Ahmedabad, React, Next.js, portfolio, Samveg Mehta',
+  description: 'Portfolio of Samveg Mehta, a Software Developer & Engineer based in Gujarat, India. Enthusiastic IT student with a keen interest in software development.',
+  keywords:    'software developer, engineer, Gujarat, React, Next.js, portfolio, Samveg Mehta',
   authors:     [{ name: 'Samveg Mehta' }],
   creator:     'Samveg Mehta',
 
-  // Open Graph — controls how link looks when shared on WhatsApp, LinkedIn etc
   openGraph: {
     type:        'website',
     locale:      'en_IN',
     url:         'https://samvegmehta.vercel.app',
     title:       'Samveg Mehta — Software Developer',
-    description: 'Software Developer based in Ahmedabad. Building scalable web apps and giving back to community.',
+    description: 'Software Developer based in Gujarat, India. Enthusiastic IT student with a keen interest in software development.',
     siteName:    'Samveg Mehta Portfolio',
     images: [{
       url:    'https://samvegmehta.vercel.app/og-image.png',
@@ -33,7 +32,7 @@ export const metadata = {
   twitter: {
     card:        'summary_large_image',
     title:       'Samveg Mehta — Software Developer',
-    description: 'Software Developer based in Ahmedabad.',
+    description: 'Software Developer based in Gujarat, India.',
     images:      ['https://samvegmehta.vercel.app/og-image.png'],
   },
 

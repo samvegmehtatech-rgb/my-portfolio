@@ -127,7 +127,7 @@ export default function Hero() {
       <div style={{ position: 'relative', zIndex: 1, maxWidth: '900px' }}>
 
         {/* Live Badge */}
-        {/* <div ref={badgeRef} style={{
+        <div ref={badgeRef} style={{
           display: 'inline-flex',
           alignItems: 'center',
           gap: '8px',
@@ -148,8 +148,8 @@ export default function Hero() {
             display: 'inline-block',
             animation: 'pulse 2s infinite',
           }} />
-          Currently building at Example Corp
-        </div> */}
+          Currently pursuing M.IT at Ganpat University
+        </div>
 
         {/* Main Name */}
         <div ref={nameRef} style={{ overflow: 'hidden' }}>
@@ -255,9 +255,9 @@ export default function Hero() {
         }}>
           {[
             { number: '2+', label: 'Years Experience' },
-            { number: '10+', label: 'Projects Built' },
-            { number: '5+', label: 'Community Events' },
-            { number: '3+', label: 'Open Source Contrib' },
+            { number: '5+', label: 'Projects Built' },
+            { number: '2+', label: 'Certifications' },
+            { number: '9.35', label: 'CGPA' },
           ].map((stat) => (
             <div key={stat.label} style={{ textAlign: 'center' }}>
               <div style={{

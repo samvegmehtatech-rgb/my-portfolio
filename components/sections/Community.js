@@ -30,7 +30,7 @@ const COMMUNITY = [
 
 const IMPACT_STATS = [
   { number: '500+', label: 'People Impacted' },
-  { number: '10+', label: 'Events Organized' },
+  { number: '5+', label: 'Events Organized' },
   { number: '3+', label: 'NGOs Collaborated' },
   { number: '2+', label: 'Years of Service' },
 ]
@@ -193,6 +193,134 @@ export default function Community() {
             )
           })}
         </div>
+
+        {/* --- ACHIEVEMENTS SECTION --- */}
+        <div style={{ marginTop: '120px' }}>
+          <p style={{
+            fontSize: '12px',
+            letterSpacing: '0.2em',
+            color: '#2563EB',
+            fontWeight: '600',
+            marginBottom: '16px',
+            textTransform: 'uppercase',
+            textAlign: 'center',
+          }}>
+            Awards & Recognition
+          </p>
+          <h2 style={{
+            fontSize: 'clamp(32px, 5vw, 48px)',
+            fontWeight: '700',
+            letterSpacing: '-2px',
+            color: '#0A0A0A',
+            fontFamily: 'Clash Display, sans-serif',
+            marginBottom: '48px',
+            lineHeight: '1.1',
+            textAlign: 'center',
+          }}>
+            Proof of <span style={{ color: '#F59E0B' }}>Excellence.</span>
+          </h2>
+
+          {/* Gold Medal Card Centered */}
+          <div style={{
+            background: 'white',
+            border: '3px solid',
+            borderImage: 'linear-gradient(135deg, #F59E0B, #D97706, #F59E0B) 1',
+            borderRadius: '20px',
+            padding: '36px',
+            boxShadow: '0 8px 32px rgba(245,158,11,0.2)',
+            maxWidth: '500px',
+            margin: '0 auto 32px',
+            textAlign: 'center',
+            position: 'relative',
+          }}>
+            <div style={{ fontSize: '48px', marginBottom: '16px' }}>🏅</div>
+            <h3 style={{
+              fontSize: '22px',
+              fontWeight: '700',
+              color: '#0A0A0A',
+              marginBottom: '8px',
+              fontFamily: 'Clash Display, sans-serif',
+            }}>
+              Gold Medal — Academic Excellence
+            </h3>
+            <p style={{
+              fontSize: '15px',
+              color: '#F59E0B',
+              fontWeight: '600',
+              marginBottom: '16px',
+            }}>
+              Highest Merit in B.IT
+            </p>
+            <div style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '16px',
+              marginBottom: '16px',
+            }}>
+              <span style={{ fontSize: '13px', color: '#64748B' }}>📍 Ganpat University</span>
+              <span style={{ fontSize: '13px', color: '#64748B' }}>📅 2024</span>
+            </div>
+            <p style={{ fontSize: '14px', color: '#64748B', lineHeight: '1.7' }}>
+              Awarded the Gold Medal for achieving the Highest Academic Merit in Bachelor of Science in Information Technology with a CGPA of 9.35
+            </p>
+          </div>
+
+          {/* Certificates Grid */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '24px',
+            maxWidth: '800px',
+            margin: '0 auto',
+          }}>
+            {/* Cert 1 */}
+            <div style={{
+              background: '#FFFFFF',
+              border: '2px solid #2563EB',
+              borderRadius: '20px',
+              padding: '24px',
+              textAlign: 'center',
+              boxShadow: '0 4px 16px rgba(37,99,235,0.05)'
+            }}>
+              <div style={{ fontSize: '32px', marginBottom: '12px' }}>🎗️</div>
+              <h4 style={{
+                fontSize: '16px',
+                fontWeight: '700',
+                color: '#0A0A0A',
+                marginBottom: '8px',
+              }}>
+                MongoDB Node.js Developer Path
+              </h4>
+              <p style={{ fontSize: '13px', color: '#64748B' }}>
+                Issued by MongoDB
+              </p>
+            </div>
+
+            {/* Cert 2 */}
+            <div style={{
+              background: '#FFFFFF',
+              border: '2px solid #2563EB',
+              borderRadius: '20px',
+              padding: '24px',
+              textAlign: 'center',
+              boxShadow: '0 4px 16px rgba(37,99,235,0.05)'
+            }}>
+              <div style={{ fontSize: '32px', marginBottom: '12px' }}>🎗️</div>
+              <h4 style={{
+                fontSize: '16px',
+                fontWeight: '700',
+                color: '#0A0A0A',
+                marginBottom: '8px',
+              }}>
+                Google Cloud Infrastructure
+              </h4>
+              <p style={{ fontSize: '13px', color: '#64748B' }}>
+                Issued by Google
+              </p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   )

@@ -3,9 +3,11 @@ import { useState, useRef } from 'react'
 import { useScrollAnimation } from '../../lib/useScrollAnimation'
 
 const SKILLS = [
-  'JavaScript', 'React', 'Next.js', 'Node.js',
-  'Python', 'PostgreSQL', 'MongoDB', 'Git',
-  'REST APIs', 'Tailwind CSS', 'Docker', 'AWS',
+  'Python', 'Java', 'JavaScript', 'PHP', 'SQL',
+  'HTML', 'CSS', 'Bootstrap',
+  'MongoDB', 'Express.js', 'React.js', 'Node.js',
+  'Django', 'MERN Stack', 'WordPress', 'Magento',
+  'Android Development'
 ]
 
 const VALUES = [
@@ -112,20 +114,18 @@ export default function About() {
               color: '#64748B',
               marginBottom: '32px',
             }}>
-              I am a Software Developer based in Ahemdabad with a
-              passion for building clean, performant, and scalable
-              applications. I love turning complex problems into
-              simple, elegant solutions.
+              An enthusiastic IT student with a keen interest in
+              software development and technology innovation.
+              Looking to build practical experience and contribute
+              to real-world projects in a dynamic industry environment.
             </p>
             <p style={{
               fontSize: '17px',
               lineHeight: '1.8',
               color: '#64748B',
             }}>
-              Currently working at Example Corp, where I build
-              tools that empower other developers. I believe great software is built
-              at the intersection of technical excellence and
-              deep empathy for the user.
+              Brings a focused mindset and a strong sense of
+              responsibility to every task.
             </p>
           </div>
 

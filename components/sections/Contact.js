@@ -97,12 +97,11 @@ export default function Contact() {
             Or just want to say hi? My inbox is always open.
           </p>
 
-          {/* Contact Details */}
           {[
-            { icon: '📧', label: 'Email', value: 'your@email.com' },
-            { icon: '💼', label: 'LinkedIn', value: 'linkedin.com/in/yourusername' },
-            { icon: '🐙', label: 'GitHub', value: 'github.com/yourusername' },
-            { icon: '📍', label: 'Location', value: 'Ahemdabad, India' },
+            { icon: '📧', label: 'Email', value: 'samvegbmehta@gmail.com' },
+            { icon: '💼', label: 'LinkedIn', value: 'linkedin.com/in/samvegmehta/' },
+            { icon: '🐙', label: 'GitHub', value: 'github.com/samvegmehtatech-rgb' },
+            { icon: '📍', label: 'Location', value: 'Gujarat, India' },
           ].map((item) => (
             <div key={item.label} style={{
               display: 'flex',

@@ -15,13 +15,13 @@ export default function Footer() {
         fontSize: '14px',
         color: '#64748B',
       }}>
-        © {year} Samveg Mehta. Built with passion in Ahemdabad.
+        © {year} Samveg Mehta. Built with passion in Gujarat, India.
       </p>
       <div style={{ display: 'flex', gap: '24px' }}>
         {[
-          { label: 'GitHub', href: 'https://github.com/yourusername' },
-          { label: 'LinkedIn', href: 'https://linkedin.com/in/yourusername' },
-          { label: 'Email', href: 'mailto:your@email.com' },
+          { label: 'GitHub', href: 'https://github.com/samvegmehtatech-rgb' },
+          { label: 'LinkedIn', href: 'https://www.linkedin.com/in/samvegmehta/' },
+          { label: 'Email', href: 'mailto:samvegbmehta@gmail.com' },
         ].map((link) => (
           <a
             key={link.label}

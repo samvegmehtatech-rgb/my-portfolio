@@ -3,35 +3,20 @@ import { useScrollAnimation } from '../../lib/useScrollAnimation'
 
 const WORK = [
   {
-    company: 'Example Corp',
-    role: 'Software Developer',
-    duration: 'Jan 2024 – Present',
-    location: 'Ahemdabad, India',
-    type: 'Full Time',
+    company: 'Ganpat University',
+    role: 'Master\'s Student & Developer',
+    duration: '2024 – Present',
+    location: 'Gujarat, India',
+    type: 'Full Time Student',
     current: true,
-    description: 'Working on full-stack web applications and developer tools. Responsible for maintaining core microservices and improving frontend performance.',
+    description: 'Pursuing M.IT while actively building real-world projects and expanding expertise in full-stack development.',
     impact: [
-      'Built a custom dashboard that improved rendering metrics by 40%',
-      'Led development of an internal CRM used by 200+ employees',
-      'Reduced deployment times by 50% through CI/CD optimization',
+      'Maintaining CGPA of 9.25',
+      'Building production-grade web applications',
+      'Exploring cloud and mobile technologies'
     ],
-    tech: ['React', 'Node.js', 'PostgreSQL'],
-  },
-  {
-    company: 'Tech Solutions Inc.',
-    role: 'Software Developer Intern',
-    duration: 'Jun 2023 – Dec 2023',
-    location: 'Ahemdabad, India',
-    type: 'Internship',
-    current: false,
-    description: 'Interned at Tech Solutions where I worked on building robust API endpoints and responsive user interfaces. Learned agile development methodologies.',
-    impact: [
-      'Developed a new user onboarding flow from scratch',
-      'Collaborated with a cross-functional team of 8 developers',
-      'Shipped 15 new features in a 6-month timeframe',
-    ],
-    tech: ['JavaScript', 'Python', 'MongoDB'],
-  },
+    tech: ['React', 'Node.js', 'MongoDB', 'Python'],
+  }
 ]
 
 function WorkCard({ job, index }) {

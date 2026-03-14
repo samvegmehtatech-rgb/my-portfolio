@@ -246,3 +246,25 @@ export default function Projects() {
     </section>
   )
 }
+
+/*
+=======================================================
+SAMPLE DATA SQL FOR SUPABASE (PROJECTS)
+=======================================================
+INSERT INTO projects (title, description, tech_stack, featured, order_index)
+VALUES 
+(
+  'Django Based Healthcare Appointment Booking System with PRMS',
+  'A comprehensive healthcare platform for booking appointments across various departments including psychology, eye care, dentistry, and diagnostics. Patients can schedule CT scans, MRIs, blood tests, and maintains detailed records.',
+  ARRAY['Django', 'Python', 'SQL', 'HTML', 'CSS', 'Bootstrap'],
+  true,
+  1
+),
+(
+  'MERN Stack Based Experience Listing Website',
+  'A full-stack experience listing platform with real-time availability, filtering, and secure reservations — similar to Airbnb Experiences. Includes multi-image gallery view and various filters.',
+  ARRAY['MongoDB', 'Express.js', 'React.js', 'Node.js', 'JavaScript'],
+  true,
+  2
+);
+*/
