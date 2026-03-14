@@ -4,14 +4,14 @@ import { supabase } from '../../lib/supabase'
 import { useScrollAnimation } from '../../lib/useScrollAnimation'
 
 export default function Contact() {
-  const [form,    setForm]    = useState({
+  const [form, setForm] = useState({
     name: '', email: '', subject: '', message: ''
   })
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
-  const [error,   setError]   = useState('')
+  const [error, setError] = useState('')
   const headerRef = useScrollAnimation({ y: 30, duration: 0.8 })
-  const formRef   = useScrollAnimation({ y: 40, duration: 0.8, delay: 0.2 })
+  const formRef = useScrollAnimation({ y: 40, duration: 0.8, delay: 0.2 })
 
   const handleChange = (e) => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
@@ -39,58 +39,58 @@ export default function Contact() {
   }
 
   const inputStyle = {
-    width:        '100%',
-    padding:      '14px 18px',
-    border:       '1px solid #E2E8F0',
+    width: '100%',
+    padding: '14px 18px',
+    border: '1px solid #E2E8F0',
     borderRadius: '12px',
-    fontSize:     '15px',
-    outline:      'none',
-    fontFamily:   'Satoshi, sans-serif',
-    color:        '#0A0A0A',
-    background:   '#F8F9FA',
-    boxSizing:    'border-box',
-    transition:   'border-color 0.2s',
+    fontSize: '15px',
+    outline: 'none',
+    fontFamily: 'Satoshi, sans-serif',
+    color: '#0A0A0A',
+    background: '#F8F9FA',
+    boxSizing: 'border-box',
+    transition: 'border-color 0.2s',
   }
 
   return (
     <section id="contact" style={{ padding: '120px 40px' }}>
       <div style={{
         maxWidth: '1100px',
-        margin:   '0 auto',
-        display:  'grid',
+        margin: '0 auto',
+        display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-        gap:      '80px',
-        alignItems:'start',
+        gap: '80px',
+        alignItems: 'start',
       }}>
 
         {/* Left: Info */}
         <div ref={headerRef}>
           <p style={{
-            fontSize:      '12px',
+            fontSize: '12px',
             letterSpacing: '0.2em',
-            color:         '#2563EB',
-            fontWeight:    '600',
-            marginBottom:  '16px',
+            color: '#2563EB',
+            fontWeight: '600',
+            marginBottom: '16px',
             textTransform: 'uppercase',
           }}>
             Contact
           </p>
           <h2 style={{
-            fontSize:      'clamp(32px, 5vw, 56px)',
-            fontWeight:    '700',
+            fontSize: 'clamp(32px, 5vw, 56px)',
+            fontWeight: '700',
             letterSpacing: '-2px',
-            color:         '#0A0A0A',
-            fontFamily:    'Clash Display, sans-serif',
-            marginBottom:  '24px',
-            lineHeight:    '1.1',
+            color: '#0A0A0A',
+            fontFamily: 'Clash Display, sans-serif',
+            marginBottom: '24px',
+            lineHeight: '1.1',
           }}>
             Let us build<br />
             <span style={{ color: '#2563EB' }}>something.</span>
           </h2>
           <p style={{
-            fontSize:     '17px',
-            color:        '#64748B',
-            lineHeight:   '1.7',
+            fontSize: '17px',
+            color: '#64748B',
+            lineHeight: '1.7',
             marginBottom: '48px',
           }}>
             Have a project in mind? Want to collaborate?
@@ -99,45 +99,45 @@ export default function Contact() {
 
           {/* Contact Details */}
           {[
-            { icon: '📧', label: 'Email',    value: 'your@email.com'              },
+            { icon: '📧', label: 'Email', value: 'your@email.com' },
             { icon: '💼', label: 'LinkedIn', value: 'linkedin.com/in/yourusername' },
-            { icon: '🐙', label: 'GitHub',   value: 'github.com/yourusername'      },
-            { icon: '📍', label: 'Location', value: 'Mumbai, India'                },
+            { icon: '🐙', label: 'GitHub', value: 'github.com/yourusername' },
+            { icon: '📍', label: 'Location', value: 'Ahemdabad, India' },
           ].map((item) => (
             <div key={item.label} style={{
-              display:      'flex',
-              alignItems:   'center',
-              gap:          '16px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '16px',
               marginBottom: '20px',
             }}>
               <div style={{
-                width:          '48px',
-                height:         '48px',
-                borderRadius:   '12px',
-                background:     '#F8F9FA',
-                border:         '1px solid #E2E8F0',
-                display:        'flex',
-                alignItems:     'center',
+                width: '48px',
+                height: '48px',
+                borderRadius: '12px',
+                background: '#F8F9FA',
+                border: '1px solid #E2E8F0',
+                display: 'flex',
+                alignItems: 'center',
                 justifyContent: 'center',
-                fontSize:       '20px',
-                flexShrink:     0,
+                fontSize: '20px',
+                flexShrink: 0,
               }}>
                 {item.icon}
               </div>
               <div>
                 <p style={{
-                  fontSize:  '12px',
-                  color:     '#64748B',
-                  fontWeight:'600',
-                  textTransform:'uppercase',
-                  letterSpacing:'0.05em',
+                  fontSize: '12px',
+                  color: '#64748B',
+                  fontWeight: '600',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em',
                 }}>
                   {item.label}
                 </p>
                 <p style={{
-                  fontSize:  '15px',
-                  color:     '#0A0A0A',
-                  fontWeight:'500',
+                  fontSize: '15px',
+                  color: '#0A0A0A',
+                  fontWeight: '500',
                 }}>
                   {item.value}
                 </p>
@@ -148,25 +148,25 @@ export default function Contact() {
 
         {/* Right: Form */}
         <div ref={formRef} style={{
-          background:   '#F8F9FA',
-          border:       '1px solid #E2E8F0',
+          background: '#F8F9FA',
+          border: '1px solid #E2E8F0',
           borderRadius: '24px',
-          padding:      '40px',
+          padding: '40px',
         }}>
           {success ? (
             <div style={{
-              textAlign:  'center',
-              padding:    '40px 0',
+              textAlign: 'center',
+              padding: '40px 0',
             }}>
               <div style={{ fontSize: '56px', marginBottom: '16px' }}>
                 🎉
               </div>
               <h3 style={{
-                fontSize:     '24px',
-                fontWeight:   '700',
-                color:        '#0A0A0A',
+                fontSize: '24px',
+                fontWeight: '700',
+                color: '#0A0A0A',
                 marginBottom: '12px',
-                fontFamily:   'Clash Display, sans-serif',
+                fontFamily: 'Clash Display, sans-serif',
               }}>
                 Message Sent!
               </h3>
@@ -186,12 +186,12 @@ export default function Contact() {
                 <input
                   name="name"
                   type="text"
-                  placeholder="Your Name"
+                  placeholder="Samveg Mehta"
                   value={form.name}
                   onChange={handleChange}
                   style={inputStyle}
                   onFocus={e => e.target.style.borderColor = '#2563EB'}
-                  onBlur={e  => e.target.style.borderColor = '#E2E8F0'}
+                  onBlur={e => e.target.style.borderColor = '#E2E8F0'}
                 />
                 <input
                   name="email"
@@ -201,7 +201,7 @@ export default function Contact() {
                   onChange={handleChange}
                   style={inputStyle}
                   onFocus={e => e.target.style.borderColor = '#2563EB'}
-                  onBlur={e  => e.target.style.borderColor = '#E2E8F0'}
+                  onBlur={e => e.target.style.borderColor = '#E2E8F0'}
                 />
               </div>
               <input
@@ -212,7 +212,7 @@ export default function Contact() {
                 onChange={handleChange}
                 style={{ ...inputStyle, marginBottom: '16px' }}
                 onFocus={e => e.target.style.borderColor = '#2563EB'}
-                onBlur={e  => e.target.style.borderColor = '#E2E8F0'}
+                onBlur={e => e.target.style.borderColor = '#E2E8F0'}
               />
               <textarea
                 name="message"
@@ -222,18 +222,18 @@ export default function Contact() {
                 rows={6}
                 style={{
                   ...inputStyle,
-                  resize:       'vertical',
+                  resize: 'vertical',
                   marginBottom: '24px',
-                  display:      'block',
+                  display: 'block',
                 }}
                 onFocus={e => e.target.style.borderColor = '#2563EB'}
-                onBlur={e  => e.target.style.borderColor = '#E2E8F0'}
+                onBlur={e => e.target.style.borderColor = '#E2E8F0'}
               />
 
               {error && (
                 <p style={{
-                  color:        '#DC2626',
-                  fontSize:     '14px',
+                  color: '#DC2626',
+                  fontSize: '14px',
                   marginBottom: '16px',
                 }}>
                   {error}
@@ -244,17 +244,17 @@ export default function Contact() {
                 onClick={handleSubmit}
                 disabled={loading}
                 style={{
-                  width:       '100%',
-                  background:  loading ? '#E2E8F0' : '#0A0A0A',
-                  color:       loading ? '#64748B' : '#FFFFFF',
-                  padding:     '16px',
-                  borderRadius:'12px',
-                  border:      'none',
-                  fontSize:    '16px',
-                  fontWeight:  '600',
-                  cursor:      loading ? 'not-allowed' : 'pointer',
-                  transition:  'all 0.2s',
-                  fontFamily:  'Satoshi, sans-serif',
+                  width: '100%',
+                  background: loading ? '#E2E8F0' : '#0A0A0A',
+                  color: loading ? '#64748B' : '#FFFFFF',
+                  padding: '16px',
+                  borderRadius: '12px',
+                  border: 'none',
+                  fontSize: '16px',
+                  fontWeight: '600',
+                  cursor: loading ? 'not-allowed' : 'pointer',
+                  transition: 'all 0.2s',
+                  fontFamily: 'Satoshi, sans-serif',
                 }}
                 onMouseEnter={e => {
                   if (!loading) e.target.style.background = '#2563EB'

@@ -4,24 +4,24 @@ export default function Footer() {
 
   return (
     <footer style={{
-      borderTop:      '1px solid #E2E8F0',
-      padding:        '40px',
-      display:        'flex',
+      borderTop: '1px solid #E2E8F0',
+      padding: '40px',
+      display: 'flex',
       justifyContent: 'space-between',
-      alignItems:     'center',
-      background:     '#FFFFFF',
+      alignItems: 'center',
+      background: '#FFFFFF',
     }}>
       <p style={{
         fontSize: '14px',
-        color:    '#64748B',
+        color: '#64748B',
       }}>
-        © {year} Your Name. Built with passion in Mumbai.
+        © {year} Samveg Mehta. Built with passion in Ahemdabad.
       </p>
       <div style={{ display: 'flex', gap: '24px' }}>
         {[
-          { label: 'GitHub',   href: 'https://github.com/yourusername'        },
-          { label: 'LinkedIn', href: 'https://linkedin.com/in/yourusername'   },
-          { label: 'Email',    href: 'mailto:your@email.com'                  },
+          { label: 'GitHub', href: 'https://github.com/yourusername' },
+          { label: 'LinkedIn', href: 'https://linkedin.com/in/yourusername' },
+          { label: 'Email', href: 'mailto:your@email.com' },
         ].map((link) => (
           <a
             key={link.label}
@@ -29,10 +29,10 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              fontSize:       '14px',
-              color:          '#64748B',
+              fontSize: '14px',
+              color: '#64748B',
               textDecoration: 'none',
-              transition:     'color 0.2s',
+              transition: 'color 0.2s',
             }}
             onMouseEnter={e => e.target.style.color = '#2563EB'}
             onMouseLeave={e => e.target.style.color = '#64748B'}

@@ -3,57 +3,57 @@ import { useScrollAnimation } from '../../lib/useScrollAnimation'
 
 const EDUCATION = [
   {
-    year:        '2010 – 2022',
-    type:        'School',
+    year: '2010 – 2022',
+    type: 'School',
     institution: 'Bombay Scottish School',
-    location:    'Mumbai, India',
+    location: 'Ahemdabad, India',
     description: 'Completed my foundational education here. Discovered my passion for computers and mathematics. Participated in science fairs and tech clubs.',
-    highlight:   'Science Stream with Computer Science',
-    icon:        '🏫',
+    highlight: 'Science Stream with Computer Science',
+    icon: '🏫',
   },
   {
-    year:        '2022 – 2026',
-    type:        'College',
+    year: '2022 – 2026',
+    type: 'College',
     institution: 'DJ Sanghvi College of Engineering',
-    location:    'Mumbai, India',
+    location: 'Ahemdabad, India',
     description: 'Pursuing Bachelor of Engineering in Computer Science. Built multiple projects, led tech clubs, and represented college in hackathons.',
-    highlight:   'B.E. Computer Science — CGPA: 9.3',
-    icon:        '🎓',
+    highlight: 'B.E. Computer Science — CGPA: 9.3',
+    icon: '🎓',
   },
   {
-    year:        '2023',
-    type:        'Certification',
+    year: '2023',
+    type: 'Certification',
     institution: 'AWS Certified Solutions Architect',
-    location:    'Online',
+    location: 'Online',
     description: 'Completed professional certification to deepen expertise in cloud computing and architecting distributed systems. Applied learnings directly in real-world projects.',
-    highlight:   'Issued by AWS',
-    icon:        '📜',
+    highlight: 'Issued by AWS',
+    icon: '📜',
   },
 ]
 
 function TimelineItem({ item, index }) {
   const ref = useScrollAnimation({
-    y:        50,
+    y: 50,
     duration: 0.7,
-    delay:    index * 0.15,
+    delay: index * 0.15,
   })
 
   return (
     <div ref={ref} style={{
       display: 'flex',
-      gap:     '32px',
-      position:'relative',
+      gap: '32px',
+      position: 'relative',
     }}>
       {/* Left: Year */}
       <div style={{
-        width:      '100px',
+        width: '100px',
         flexShrink: 0,
-        textAlign:  'right',
+        textAlign: 'right',
         paddingTop: '4px',
       }}>
         <span style={{
-          fontSize:   '12px',
-          color:      '#64748B',
+          fontSize: '12px',
+          color: '#64748B',
           fontFamily: 'JetBrains Mono, monospace',
           fontWeight: '500',
         }}>
@@ -63,81 +63,81 @@ function TimelineItem({ item, index }) {
 
       {/* Center: Dot + Line */}
       <div style={{
-        display:       'flex',
+        display: 'flex',
         flexDirection: 'column',
-        alignItems:    'center',
-        flexShrink:    0,
+        alignItems: 'center',
+        flexShrink: 0,
       }}>
         <div style={{
-          width:        '40px',
-          height:       '40px',
+          width: '40px',
+          height: '40px',
           borderRadius: '50%',
-          background:   '#EFF6FF',
-          border:       '2px solid #2563EB',
-          display:      'flex',
-          alignItems:   'center',
-          justifyContent:'center',
-          fontSize:     '18px',
-          flexShrink:   0,
-          zIndex:       1,
+          background: '#EFF6FF',
+          border: '2px solid #2563EB',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontSize: '18px',
+          flexShrink: 0,
+          zIndex: 1,
         }}>
           {item.icon}
         </div>
         <div style={{
-          width:      '2px',
-          flexGrow:   1,
+          width: '2px',
+          flexGrow: 1,
           background: 'linear-gradient(180deg, #2563EB, #E2E8F0)',
-          minHeight:  '60px',
-          marginTop:  '8px',
+          minHeight: '60px',
+          marginTop: '8px',
         }} />
       </div>
 
       {/* Right: Content */}
       <div style={{
-        flex:          1,
+        flex: 1,
         paddingBottom: '48px',
       }}>
         <span style={{
-          fontSize:      '11px',
+          fontSize: '11px',
           letterSpacing: '0.15em',
-          color:         '#2563EB',
-          fontWeight:    '600',
+          color: '#2563EB',
+          fontWeight: '600',
           textTransform: 'uppercase',
         }}>
           {item.type}
         </span>
         <h3 style={{
-          fontSize:     '22px',
-          fontWeight:   '700',
-          color:        '#0A0A0A',
-          margin:       '6px 0 4px',
-          fontFamily:   'Clash Display, sans-serif',
+          fontSize: '22px',
+          fontWeight: '700',
+          color: '#0A0A0A',
+          margin: '6px 0 4px',
+          fontFamily: 'Clash Display, sans-serif',
         }}>
           {item.institution}
         </h3>
         <p style={{
-          fontSize:     '13px',
-          color:        '#64748B',
+          fontSize: '13px',
+          color: '#64748B',
           marginBottom: '12px',
         }}>
           📍 {item.location}
         </p>
         <p style={{
-          fontSize:     '15px',
-          lineHeight:   '1.7',
-          color:        '#64748B',
+          fontSize: '15px',
+          lineHeight: '1.7',
+          color: '#64748B',
           marginBottom: '16px',
         }}>
           {item.description}
         </p>
         <span style={{
-          background:    '#EFF6FF',
-          border:        '1px solid #BFDBFE',
-          borderRadius:  '8px',
-          padding:       '6px 14px',
-          fontSize:      '13px',
-          color:         '#1D4ED8',
-          fontWeight:    '500',
+          background: '#EFF6FF',
+          border: '1px solid #BFDBFE',
+          borderRadius: '8px',
+          padding: '6px 14px',
+          fontSize: '13px',
+          color: '#1D4ED8',
+          fontWeight: '500',
         }}>
           {item.highlight}
         </span>
@@ -151,30 +151,30 @@ export default function Education() {
 
   return (
     <section id="education" style={{
-      padding:         '120px 40px',
-      background:      '#F8F9FA',
+      padding: '120px 40px',
+      background: '#F8F9FA',
     }}>
       <div style={{ maxWidth: '900px', margin: '0 auto' }}>
 
         <div ref={headerRef}>
           <p style={{
-            fontSize:      '12px',
+            fontSize: '12px',
             letterSpacing: '0.2em',
-            color:         '#2563EB',
-            fontWeight:    '600',
-            marginBottom:  '16px',
+            color: '#2563EB',
+            fontWeight: '600',
+            marginBottom: '16px',
             textTransform: 'uppercase',
           }}>
             Education
           </p>
           <h2 style={{
-            fontSize:      'clamp(32px, 5vw, 56px)',
-            fontWeight:    '700',
+            fontSize: 'clamp(32px, 5vw, 56px)',
+            fontWeight: '700',
             letterSpacing: '-2px',
-            color:         '#0A0A0A',
-            fontFamily:    'Clash Display, sans-serif',
-            marginBottom:  '64px',
-            lineHeight:    '1.1',
+            color: '#0A0A0A',
+            fontFamily: 'Clash Display, sans-serif',
+            marginBottom: '64px',
+            lineHeight: '1.1',
           }}>
             My learning<br />
             <span style={{ color: '#2563EB' }}>journey.</span>
