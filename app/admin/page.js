@@ -21,10 +21,26 @@ export default function AdminPanel() {
     title: '', slug: '', excerpt: '', content: '', tags: ''
   })
 
-  // Project form
   const [projectForm, setProjectForm] = useState({
     title: '', description: '', tech_stack: '', live_url: '', github_url: '', featured: false
   })
+
+  // Achievement form
+  const [achieveForm, setAchieveForm] = useState({
+    title:       '',
+    description: '',
+    category:    'Award',
+    date:        '',
+    issuer:      '',
+    featured:    false,
+  })
+  const [achieveImage,   setAchieveImage]   = useState(null)
+  const [imagePreview,   setImagePreview]   = useState(null)
+  const [uploadProgress, setUploadProgress] = useState('')
+
+  // Life Feed Image State
+  const [feedImage, setFeedImage]     = useState(null)
+  const [feedPreview, setFeedPreview] = useState(null)
 
   const [saving, setSaving] = useState(false)
   const [saved,  setSaved]  = useState(false)
@@ -78,14 +94,96 @@ export default function AdminPanel() {
     setTimeout(() => setSaved(false), 2000)
   }
 
+  const uploadImage = async (file, folder) => {
+    if (!file) return null
+    const ext      = file.name.split('.').pop()
+    const fileName = `${folder}/${Date.now()}.${ext}`
+
+    const { data, error } = await supabase
+      .storage
+      .from('portfolio-images')
+      .upload(fileName, file, {
+        cacheControl: '3600',
+        upsert:       false,
+      })
+
+    if (error) {
+      console.error('Upload error:', error)
+      return null
+    }
+
+    const { data: urlData } = supabase
+      .storage
+      .from('portfolio-images')
+      .getPublicUrl(fileName)
+
+    return urlData.publicUrl
+  }
+
+  const handleImageSelect = (e) => {
+    const file = e.target.files[0]
+    if (!file) return
+    setAchieveImage(file)
+    const reader = new FileReader()
+    reader.onload  = (e) => setImagePreview(e.target.result)
+    reader.readAsDataURL(file)
+  }
+
+  const handleFeedImage = (e) => {
+    const file = e.target.files[0]
+    if (!file) return
+    setFeedImage(file)
+    const reader = new FileReader()
+    reader.onload  = (e) => setFeedPreview(e.target.result)
+    reader.readAsDataURL(file)
+  }
+
   const saveFeed = async () => {
     setSaving(true)
-    await supabase.from('life_feed').insert([feedForm])
+    setUploadProgress('Uploading image...')
+    let image_url = null
+    if (feedImage) {
+      image_url = await uploadImage(feedImage, 'lifefeed')
+    }
+    setUploadProgress('Saving post...')
+    await supabase.from('life_feed').insert([{ ...feedForm, image_url }])
     setFeedForm({
       title: '', description: '', category: 'Community', location: ''
     })
+    setFeedImage(null)
+    setFeedPreview(null)
+    setUploadProgress('')
     setSaving(false)
     showSaved()
+  }
+
+  const saveAchievement = async () => {
+    setSaving(true)
+    setUploadProgress('Uploading image...')
+
+    let image_url = null
+    if (achieveImage) {
+      image_url = await uploadImage(achieveImage, 'achievements')
+    }
+
+    setUploadProgress('Saving achievement...')
+
+    const { error } = await supabase
+      .from('achievements')
+      .insert([{ ...achieveForm, image_url }])
+
+    if (!error) {
+      setAchieveForm({
+        title: '', description: '', category: 'Award',
+        date: '', issuer: '', featured: false,
+      })
+      setAchieveImage(null)
+      setImagePreview(null)
+      showSaved()
+    }
+
+    setUploadProgress('')
+    setSaving(false)
   }
 
   const saveBlog = async () => {
@@ -213,8 +311,9 @@ export default function AdminPanel() {
   const TABS = [
     { id: 'lifefeed', label: '📸 Life Feed'  },
     { id: 'blog',     label: '✍️ Blog'       },
-    { id: 'projects', label: '💻 Projects'   },
-    { id: 'messages', label: '💬 Guestbook'  },
+    { id: 'projects',     label: '💻 Projects'   },
+    { id: 'achievements', label: '🏆 Achievements' },
+    { id: 'messages',     label: '💬 Guestbook'  },
     { id: 'contacts', label: '📧 Contacts'   },
   ]
 
@@ -315,6 +414,56 @@ export default function AdminPanel() {
               }}>
                 Post to Life Feed
               </h2>
+              
+              {/* Image Upload for Life Feed */}
+              <div style={{
+                border:       '2px dashed #E2E8F0',
+                borderRadius: '16px',
+                padding:      '24px',
+                textAlign:    'center',
+                marginBottom: '16px',
+                background:   '#F8F9FA',
+                cursor:       'pointer',
+              }}
+              onClick={() =>
+                document.getElementById('feed-upload').click()
+              }
+              >
+                {feedPreview ? (
+                  <div>
+                    <img
+                      src={feedPreview}
+                      alt="Preview"
+                      style={{
+                        maxHeight:    '160px',
+                        maxWidth:     '100%',
+                        borderRadius: '8px',
+                        marginBottom: '8px',
+                        objectFit:    'cover',
+                      }}
+                    />
+                    <p style={{
+                      color:    '#2563EB',
+                      fontSize: '12px',
+                      fontWeight:'600',
+                    }}>
+                      ✅ Click to change image
+                    </p>
+                  </div>
+                ) : (
+                  <p style={{ color: '#64748B', fontSize: '14px' }}>
+                    📸 Click to add photo (optional)
+                  </p>
+                )}
+                <input
+                  id="feed-upload"
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFeedImage}
+                  style={{ display: 'none' }}
+                />
+              </div>
+
               <input
                 placeholder="Title *"
                 value={feedForm.title}
@@ -343,6 +492,13 @@ export default function AdminPanel() {
                 onChange={e => setFeedForm({...feedForm, location: e.target.value})}
                 style={inputStyle}
               />
+
+              {uploadProgress && (
+                <p style={{ color: '#2563EB', fontSize: '14px', marginBottom: '12px', fontWeight: '500' }}>
+                  ⏳ {uploadProgress}
+                </p>
+              )}
+
               <button onClick={saveFeed} disabled={saving} style={btnStyle}>
                 {saving ? 'Posting...' : 'Post to Life Feed ✨'}
               </button>
@@ -461,6 +617,196 @@ export default function AdminPanel() {
               </label>
               <button onClick={saveProject} disabled={saving} style={btnStyle}>
                 {saving ? 'Saving...' : 'Add Project →'}
+              </button>
+            </div>
+          )}
+
+          {/* ACHIEVEMENTS TAB */}
+          {tab === 'achievements' && (
+            <div style={{ maxWidth: '640px' }}>
+              <h2 style={{
+                fontSize:   '24px',
+                fontWeight: '700',
+                color:      '#0A0A0A',
+                fontFamily: 'Clash Display, sans-serif',
+                marginBottom:'24px',
+              }}>
+                Add Achievement / Photo
+              </h2>
+
+              {/* Image Upload Area */}
+              <div style={{
+                border:       '2px dashed #E2E8F0',
+                borderRadius: '16px',
+                padding:      '32px',
+                textAlign:    'center',
+                marginBottom: '20px',
+                background:   '#F8F9FA',
+                cursor:       'pointer',
+                transition:   'all 0.2s',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.borderColor = '#2563EB'
+                e.currentTarget.style.background  = '#EFF6FF'
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.borderColor = '#E2E8F0'
+                e.currentTarget.style.background  = '#F8F9FA'
+              }}
+              onClick={() =>
+                document.getElementById('achieve-upload').click()
+              }
+              >
+                {imagePreview ? (
+                  <div>
+                    <img
+                      src={imagePreview}
+                      alt="Preview"
+                      style={{
+                        maxHeight:    '200px',
+                        maxWidth:     '100%',
+                        borderRadius: '12px',
+                        marginBottom: '12px',
+                        objectFit:    'cover',
+                      }}
+                    />
+                    <p style={{
+                      color:    '#2563EB',
+                      fontSize: '13px',
+                      fontWeight:'600',
+                    }}>
+                      ✅ Image selected — click to change
+                    </p>
+                  </div>
+                ) : (
+                  <div>
+                    <div style={{
+                      fontSize:     '40px',
+                      marginBottom: '12px',
+                    }}>
+                      📸
+                    </div>
+                    <p style={{
+                      color:      '#64748B',
+                      fontSize:   '15px',
+                      fontWeight: '500',
+                    }}>
+                      Click to upload image
+                    </p>
+                    <p style={{
+                      color:    '#94A3B8',
+                      fontSize: '12px',
+                      marginTop:'4px',
+                    }}>
+                      JPG, PNG, WEBP — Max 5MB
+                    </p>
+                  </div>
+                )}
+                <input
+                  id="achieve-upload"
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageSelect}
+                  style={{ display: 'none' }}
+                />
+              </div>
+
+              {/* Form Fields */}
+              <input
+                placeholder="Title * (e.g. Gold Medal — Academic Excellence)"
+                value={achieveForm.title}
+                onChange={e => setAchieveForm({
+                  ...achieveForm, title: e.target.value
+                })}
+                style={inputStyle}
+              />
+
+              <textarea
+                placeholder="Description (optional)"
+                value={achieveForm.description}
+                onChange={e => setAchieveForm({
+                  ...achieveForm, description: e.target.value
+                })}
+                rows={3}
+                style={{ ...inputStyle, resize: 'vertical' }}
+              />
+
+              <select
+                value={achieveForm.category}
+                onChange={e => setAchieveForm({
+                  ...achieveForm, category: e.target.value
+                })}
+                style={inputStyle}
+              >
+                {['Award','Certificate','Community',
+                  'Event','Hackathon','Personal'].map(c => (
+                  <option key={c} value={c}>{c}</option>
+                ))}
+              </select>
+
+              <input
+                placeholder="Issuer / Organization (e.g. Ganpat University)"
+                value={achieveForm.issuer}
+                onChange={e => setAchieveForm({
+                  ...achieveForm, issuer: e.target.value
+                })}
+                style={inputStyle}
+              />
+
+              <input
+                placeholder="Date (e.g. March 2024)"
+                value={achieveForm.date}
+                onChange={e => setAchieveForm({
+                  ...achieveForm, date: e.target.value
+                })}
+                style={inputStyle}
+              />
+
+              <label style={{
+                display:      'flex',
+                alignItems:   'center',
+                gap:          '10px',
+                marginBottom: '20px',
+                cursor:       'pointer',
+                fontSize:     '14px',
+                color:        '#64748B',
+              }}>
+                <input
+                  type="checkbox"
+                  checked={achieveForm.featured}
+                  onChange={e => setAchieveForm({
+                    ...achieveForm, featured: e.target.checked
+                  })}
+                />
+                Mark as Featured
+                (shows larger in gallery)
+              </label>
+
+              {uploadProgress && (
+                <p style={{
+                  color:        '#2563EB',
+                  fontSize:     '14px',
+                  marginBottom: '12px',
+                  fontWeight:   '500',
+                }}>
+                  ⏳ {uploadProgress}
+                </p>
+              )}
+
+              <button
+                onClick={saveAchievement}
+                disabled={saving || !achieveForm.title}
+                style={{
+                  ...btnStyle,
+                  width:      '100%',
+                  opacity:    saving ? 0.6 : 1,
+                  cursor:     saving ? 'not-allowed' : 'pointer',
+                }}
+              >
+                {saving
+                  ? 'Uploading & Saving...'
+                  : 'Add to Gallery 🏆'
+                }
               </button>
             </div>
           )}

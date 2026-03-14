@@ -6,6 +6,7 @@ import WorkExperience from '../components/sections/WorkExperience'
 import Projects from '../components/sections/Projects'
 import Community from '../components/sections/Community'
 import LifeFeed from '../components/sections/LifeFeed'
+import Achievements from '../components/sections/Achievements'
 import Blog from '../components/sections/Blog'
 import Guestbook from '../components/sections/Guestbook'
 import Contact from '../components/sections/Contact'
@@ -27,6 +28,8 @@ export default function Home() {
       <Community />
       <Divider />
       <LifeFeed />
+      <Divider />
+      <Achievements />
       <Divider />
       <Blog />
       <Divider />

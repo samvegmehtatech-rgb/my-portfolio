@@ -8,6 +8,7 @@ const navLinks = [
   { label: 'Work', href: '#work' },
   { label: 'Projects', href: '#projects' },
   { label: 'Community', href: '#community' },
+  { label: 'Gallery', href: '#achievements' },
   { label: 'Life Feed', href: '#lifefeed' },
   { label: 'Blog', href: '/blog' },
   { label: 'Guestbook', href: '#guestbook' },
