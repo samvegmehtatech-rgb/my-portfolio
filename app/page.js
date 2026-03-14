@@ -1,35 +1,19 @@
-'use client'
-import { useEffect, useState } from 'react'
-import { supabase } from '../lib/supabase'
+import Hero           from '../components/sections/Hero'
+import About          from '../components/sections/About'
+import Education      from '../components/sections/Education'
+import WorkExperience from '../components/sections/WorkExperience'
+import Projects       from '../components/sections/Projects'
+import Community      from '../components/sections/Community'
 
 export default function Home() {
-  const [status, setStatus] = useState('Testing connection...')
-
-  useEffect(() => {
-    async function testConnection() {
-      const { data, error } = await supabase
-        .from('projects')
-        .select('*')
-
-      if (error) {
-        setStatus('❌ Connection failed: ' + error.message)
-      } else {
-        setStatus('✅ Supabase connected! Tables ready.')
-      }
-    }
-    testConnection()
-  }, [])
-
   return (
-    <div style={{ 
-      display: 'flex', 
-      justifyContent: 'center', 
-      alignItems: 'center', 
-      height: '100vh',
-      fontFamily: 'sans-serif',
-      fontSize: '24px'
-    }}>
-      {status}
-    </div>
+    <>
+      <Hero />
+      <About />
+      <Education />
+      <WorkExperience />
+      <Projects />
+      <Community />
+    </>
   )
 }
