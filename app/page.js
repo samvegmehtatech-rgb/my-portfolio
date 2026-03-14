@@ -25,11 +25,11 @@ export default function Home() {
       <Divider />
       <Projects />
       <Divider />
+      <Achievements />
+      <Divider />
       <Community />
       <Divider />
       <LifeFeed />
-      <Divider />
-      <Achievements />
       <Divider />
       <Blog />
       <Divider />
