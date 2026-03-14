@@ -3,11 +3,11 @@ import { useState, useRef } from 'react'
 import { useScrollAnimation } from '../../lib/useScrollAnimation'
 
 const SKILLS = [
-  'Python', 'Java', 'JavaScript', 'PHP', 'SQL',
-  'HTML', 'CSS', 'Bootstrap',
-  'MongoDB', 'Express.js', 'React.js', 'Node.js',
-  'Django', 'MERN Stack', 'WordPress', 'Magento',
-  'Android Development'
+  'JavaScript', 'React.js', 'Node.js', 'Express.js',
+  'MongoDB', 'Python', 'Django', 'PHP', 'Java', 'SQL',
+  'HTML', 'CSS', 'Bootstrap', 'ASP.NET Core',
+  'Android Dev', 'WordPress', 'Magento', 'Git',
+  'Azure', 'REST APIs'
 ]
 
 const VALUES = [
@@ -114,18 +114,23 @@ export default function About() {
               color: '#64748B',
               marginBottom: '32px',
             }}>
-              An enthusiastic IT student with a keen interest in
-              software development and technology innovation.
-              Looking to build practical experience and contribute
-              to real-world projects in a dynamic industry environment.
+              I am a Software Developer based in Gujarat, India
+              with a passion for building clean, performant, and
+              scalable applications. Currently pursuing my Master's
+              in Information Technology at Ganpat University with
+              a CGPA of 9.25, while actively building real-world
+              projects and interning at Ansi ByteCode LLP.
             </p>
             <p style={{
               fontSize: '17px',
               lineHeight: '1.8',
               color: '#64748B',
             }}>
-              Brings a focused mindset and a strong sense of
-              responsibility to every task.
+              I specialize in the MERN Stack and Django, and I
+              believe great software is built at the intersection
+              of technical excellence and deep empathy for the user.
+              I bring a focused mindset and strong sense of
+              responsibility to every project I take on.
             </p>
           </div>
 

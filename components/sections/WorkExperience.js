@@ -3,20 +3,54 @@ import { useScrollAnimation } from '../../lib/useScrollAnimation'
 
 const WORK = [
   {
-    company: 'Ganpat University',
-    role: 'Master\'s Student & Developer',
-    duration: '2024 – Present',
-    location: 'Gujarat, India',
-    type: 'Full Time Student',
-    current: true,
-    description: 'Pursuing M.IT while actively building real-world projects and expanding expertise in full-stack development.',
+    company:     'Ansi ByteCode LLP',
+    companyUrl:  'https://ansibytecode.com',
+    role:        'Software Engineer Intern',
+    duration:    'Feb 2024 – Present',
+    location:    'Ahmedabad, Gujarat, India',
+    type:        'Internship',
+    current:     true,
+    description: 'Interning at Ansi ByteCode LLP — a Microsoft Solutions Partner and decade-old enterprise AI & software development company based in Ahmedabad. Working on real client projects using Microsoft .NET stack, enterprise web development, and cloud-based solutions.',
     impact: [
-      'Maintaining CGPA of 9.25',
-      'Building production-grade web applications',
-      'Exploring cloud and mobile technologies'
+      'Building and maintaining enterprise web applications using ASP.NET Core and C#',
+      'Working with Microsoft Azure cloud services for deployment and infrastructure',
+      'Collaborating with senior .NET developers on real international client projects',
+      'Gaining hands-on experience in full-stack enterprise development professionally',
     ],
-    tech: ['React', 'Node.js', 'MongoDB', 'Python'],
-  }
+    tech: [
+      'ASP.NET Core',
+      'C#',
+      '.NET',
+      'Microsoft Azure',
+      'React.js',
+      'JavaScript',
+      'SQL',
+      'HTML',
+      'CSS',
+    ],
+  },
+  {
+    company:     'Ganpat University',
+    role:        "Master's Student & Developer",
+    duration:    '2024 – Present',
+    location:    'Gujarat, India',
+    type:        'Full Time Student',
+    current:     true,
+    description: "Pursuing M.IT while actively building real-world projects, expanding expertise in full-stack development, and exploring cloud and AI technologies.",
+    impact: [
+      'Maintaining CGPA of 9.25 in M.IT program',
+      'Building production-grade web applications',
+      'Exploring cloud, mobile, and AI technologies',
+      'Contributing to university tech community',
+    ],
+    tech: [
+      'MERN Stack',
+      'Django',
+      'Python',
+      'Android',
+      'Cloud',
+    ],
+  },
 ]
 
 function WorkCard({ job, index }) {

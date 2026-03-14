@@ -15,7 +15,7 @@ export default function Footer() {
         fontSize: '14px',
         color: '#64748B',
       }}>
-        © {year} Samveg Mehta. Built with passion in Gujarat, India.
+        © {new Date().getFullYear()} Samveg Mehta. Built with passion in Gujarat.
       </p>
       <div style={{ display: 'flex', gap: '24px' }}>
         {[

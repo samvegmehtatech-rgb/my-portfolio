@@ -4,9 +4,10 @@ import { gsap } from 'gsap'
 
 const ROLES = [
   'Software Developer',
+  'MERN Stack Developer',
+  'Full Stack Engineer',
   'Problem Solver',
   'Community Builder',
-  'Open Source Contributor',
 ]
 
 export default function Hero() {
@@ -148,7 +149,7 @@ export default function Hero() {
             display: 'inline-block',
             animation: 'pulse 2s infinite',
           }} />
-          Currently pursuing M.IT at Ganpat University
+          Currently interning at Ansi ByteCode LLP 🚀
         </div>
 
         {/* Main Name */}
@@ -254,7 +255,7 @@ export default function Hero() {
           marginBottom: '64px',
         }}>
           {[
-            { number: '2+', label: 'Years Experience' },
+            { number: '1+', label: 'Years Experience' },
             { number: '5+', label: 'Projects Built' },
             { number: '2+', label: 'Certifications' },
             { number: '9.35', label: 'CGPA' },

@@ -99,7 +99,7 @@ export default function Contact() {
 
           {[
             { icon: '📧', label: 'Email', value: 'samvegbmehta@gmail.com' },
-            { icon: '💼', label: 'LinkedIn', value: 'linkedin.com/in/samvegmehta/' },
+            { icon: '💼', label: 'LinkedIn', value: 'linkedin.com/in/samvegmehta' },
             { icon: '🐙', label: 'GitHub', value: 'github.com/samvegmehtatech-rgb' },
             { icon: '📍', label: 'Location', value: 'Gujarat, India' },
           ].map((item) => (

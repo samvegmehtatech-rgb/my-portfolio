@@ -8,8 +8,8 @@ import ScrollToTop    from '../components/ScrollToTop'
 
 export const metadata = {
   title:       'Samveg Mehta — Software Developer',
-  description: 'Portfolio of Samveg Mehta, a Software Developer & Engineer based in Gujarat, India. Enthusiastic IT student with a keen interest in software development.',
-  keywords:    'software developer, engineer, Gujarat, React, Next.js, portfolio, Samveg Mehta',
+  description: 'Portfolio of Samveg Mehta, a Software Developer & IT Engineer based in Gujarat, India. Building scalable web applications and contributing to community.',
+  keywords:    'software developer, engineer, Gujarat, React, Next.js, MERN, Django, portfolio, Samveg Mehta',
   authors:     [{ name: 'Samveg Mehta' }],
   creator:     'Samveg Mehta',
 

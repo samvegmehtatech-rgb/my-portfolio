@@ -3,36 +3,36 @@ import { useScrollAnimation } from '../../lib/useScrollAnimation'
 
 const COMMUNITY = [
   {
-    icon: '🏫',
-    title: 'Underprivileged Tech Ed',
-    org: 'Ahemdabad Tech Foundation',
-    date: 'Jan 2024',
-    description: 'Spearheaded an initiative to teach foundational programming skills to 50+ students from low-income communities.',
-    impact: '50+ students taught',
+    icon:        '💻',
+    title:       'Tech Workshop at University',
+    org:         'Ganpat University',
+    date:        'Mar 2024',
+    description: 'Conducted a technical workshop for fellow students on web development fundamentals and modern JavaScript frameworks.',
+    impact:      '50+ students attended',
   },
   {
-    icon: '🌊',
-    title: 'Beach Cleanup Drive',
-    org: 'Clean Ahemdabad NGO',
-    date: 'Dec 2023',
-    description: 'Volunteered for and helped coordinate a massive cleanup drive across Juhu beach. Handled volunteer registration logistics.',
-    impact: '200 volunteers involved',
+    icon:        '🏆',
+    title:       'Hackathon Participant',
+    org:         'Ganpat University',
+    date:        'Feb 2024',
+    description: 'Participated in university-level hackathon, building a working prototype within 24 hours as part of a 4-member team.',
+    impact:      '4 member team',
   },
   {
-    icon: '💡',
-    title: 'Introduction to Web Dev',
-    org: 'DJ Sanghvi Coding Club',
-    date: 'Oct 2023',
-    description: 'Hosted a 2-day immersive workshop covering HTML, CSS, JavaScript, and an introduction to React for freshman engineering students.',
-    impact: '120 attendees',
+    icon:        '🌱',
+    title:       'Community Development Initiative',
+    org:         'Local NGO',
+    date:        'Jan 2024',
+    description: 'Actively participated in community development activities combining technology and social responsibility.',
+    impact:      '500+ people impacted',
   },
 ]
 
 const IMPACT_STATS = [
-  { number: '500+', label: 'People Impacted' },
-  { number: '5+', label: 'Events Organized' },
-  { number: '3+', label: 'NGOs Collaborated' },
-  { number: '2+', label: 'Years of Service' },
+  { number: '500+', label: 'People Impacted'    },
+  { number: '5+',   label: 'Events Organized'   },
+  { number: '2+',   label: 'Years of Service'   },
+  { number: '9.35', label: 'Academic CGPA'      },
 ]
 
 export default function Community() {
@@ -195,129 +195,163 @@ export default function Community() {
         </div>
 
         {/* --- ACHIEVEMENTS SECTION --- */}
-        <div style={{ marginTop: '120px' }}>
+        <div style={{ marginTop: '80px' }}>
+
+          {/* Section Header */}
           <p style={{
-            fontSize: '12px',
+            fontSize:      '12px',
             letterSpacing: '0.2em',
-            color: '#2563EB',
-            fontWeight: '600',
-            marginBottom: '16px',
+            color:         '#2563EB',
+            fontWeight:    '600',
+            marginBottom:  '16px',
             textTransform: 'uppercase',
-            textAlign: 'center',
           }}>
             Awards & Recognition
           </p>
-          <h2 style={{
-            fontSize: 'clamp(32px, 5vw, 48px)',
-            fontWeight: '700',
-            letterSpacing: '-2px',
-            color: '#0A0A0A',
-            fontFamily: 'Clash Display, sans-serif',
-            marginBottom: '48px',
-            lineHeight: '1.1',
-            textAlign: 'center',
+          <h3 style={{
+            fontSize:      'clamp(24px, 4vw, 40px)',
+            fontWeight:    '700',
+            letterSpacing: '-1px',
+            color:         '#0A0A0A',
+            fontFamily:    'Clash Display, sans-serif',
+            marginBottom:  '48px',
+            lineHeight:    '1.1',
           }}>
-            Proof of <span style={{ color: '#F59E0B' }}>Excellence.</span>
-          </h2>
+            Achievements that<br />
+            <span style={{ color: '#2563EB' }}>define me.</span>
+          </h3>
 
-          {/* Gold Medal Card Centered */}
+          {/* Gold Medal Card */}
           <div style={{
-            background: 'white',
-            border: '3px solid',
-            borderImage: 'linear-gradient(135deg, #F59E0B, #D97706, #F59E0B) 1',
-            borderRadius: '20px',
-            padding: '36px',
-            boxShadow: '0 8px 32px rgba(245,158,11,0.2)',
-            maxWidth: '500px',
-            margin: '0 auto 32px',
-            textAlign: 'center',
-            position: 'relative',
+            maxWidth:     '560px',
+            margin:       '0 auto 40px',
+            background:   '#FFFFFF',
+            borderRadius: '24px',
+            padding:      '40px',
+            border:       '3px solid transparent',
+            backgroundClip: 'padding-box',
+            boxShadow:    '0 8px 40px rgba(245,158,11,0.15)',
+            position:     'relative',
+            textAlign:    'center',
           }}>
-            <div style={{ fontSize: '48px', marginBottom: '16px' }}>🏅</div>
-            <h3 style={{
-              fontSize: '22px',
-              fontWeight: '700',
-              color: '#0A0A0A',
-              marginBottom: '8px',
-              fontFamily: 'Clash Display, sans-serif',
-            }}>
-              Gold Medal — Academic Excellence
-            </h3>
-            <p style={{
-              fontSize: '15px',
-              color: '#F59E0B',
-              fontWeight: '600',
-              marginBottom: '16px',
-            }}>
-              Highest Merit in B.IT
-            </p>
+            {/* Gold gradient border effect */}
             <div style={{
-              display: 'flex',
-              justifyContent: 'center',
-              gap: '16px',
-              marginBottom: '16px',
-            }}>
-              <span style={{ fontSize: '13px', color: '#64748B' }}>📍 Ganpat University</span>
-              <span style={{ fontSize: '13px', color: '#64748B' }}>📅 2024</span>
+              position:     'absolute',
+              inset:        0,
+              borderRadius: '24px',
+              padding:      '3px',
+              background:   'linear-gradient(135deg, #F59E0B, #FCD34D, #D97706, #F59E0B)',
+              WebkitMask:   'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+              WebkitMaskComposite: 'destination-out',
+              maskComposite:'exclude',
+              zIndex:       0,
+            }} />
+            <div style={{ position: 'relative', zIndex: 1 }}>
+              <div style={{ fontSize: '64px', marginBottom: '16px' }}>
+                🏅
+              </div>
+              <h4 style={{
+                fontSize:     '22px',
+                fontWeight:   '700',
+                color:        '#0A0A0A',
+                marginBottom: '8px',
+                fontFamily:   'Clash Display, sans-serif',
+              }}>
+                Gold Medal — Academic Excellence
+              </h4>
+              <p style={{
+                fontSize:     '15px',
+                color:        '#D97706',
+                fontWeight:   '600',
+                marginBottom: '4px',
+              }}>
+                Highest Merit in B.IT
+              </p>
+              <p style={{
+                fontSize:     '13px',
+                color:        '#64748B',
+                marginBottom: '16px',
+              }}>
+                Ganpat University · 2024
+              </p>
+              <p style={{
+                fontSize:   '15px',
+                color:      '#64748B',
+                lineHeight: '1.7',
+              }}>
+                Awarded the Gold Medal for achieving the
+                Highest Academic Merit in Bachelor of Science
+                in Information Technology with a CGPA of 9.35.
+              </p>
             </div>
-            <p style={{ fontSize: '14px', color: '#64748B', lineHeight: '1.7' }}>
-              Awarded the Gold Medal for achieving the Highest Academic Merit in Bachelor of Science in Information Technology with a CGPA of 9.35
-            </p>
           </div>
 
-          {/* Certificates Grid */}
+          {/* Certificate Cards */}
           <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '24px',
-            maxWidth: '800px',
-            margin: '0 auto',
+            display:             'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+            gap:                 '20px',
+            maxWidth:            '560px',
+            margin:              '0 auto',
           }}>
-            {/* Cert 1 */}
-            <div style={{
-              background: '#FFFFFF',
-              border: '2px solid #2563EB',
-              borderRadius: '20px',
-              padding: '24px',
-              textAlign: 'center',
-              boxShadow: '0 4px 16px rgba(37,99,235,0.05)'
-            }}>
-              <div style={{ fontSize: '32px', marginBottom: '12px' }}>🎗️</div>
-              <h4 style={{
-                fontSize: '16px',
-                fontWeight: '700',
-                color: '#0A0A0A',
-                marginBottom: '8px',
-              }}>
-                MongoDB Node.js Developer Path
-              </h4>
-              <p style={{ fontSize: '13px', color: '#64748B' }}>
-                Issued by MongoDB
-              </p>
-            </div>
-
-            {/* Cert 2 */}
-            <div style={{
-              background: '#FFFFFF',
-              border: '2px solid #2563EB',
-              borderRadius: '20px',
-              padding: '24px',
-              textAlign: 'center',
-              boxShadow: '0 4px 16px rgba(37,99,235,0.05)'
-            }}>
-              <div style={{ fontSize: '32px', marginBottom: '12px' }}>🎗️</div>
-              <h4 style={{
-                fontSize: '16px',
-                fontWeight: '700',
-                color: '#0A0A0A',
-                marginBottom: '8px',
-              }}>
-                Google Cloud Infrastructure
-              </h4>
-              <p style={{ fontSize: '13px', color: '#64748B' }}>
-                Issued by Google
-              </p>
-            </div>
+            {[
+              {
+                icon:   '🎗️',
+                title:  'MongoDB Node.js Developer Path',
+                issuer: 'Offered by MongoDB',
+                color:  '#00ED64',
+                border: '#BBF7D0',
+                bg:     '#F0FDF4',
+              },
+              {
+                icon:   '🎗️',
+                title:  'Google Cloud Infrastructure',
+                issuer: 'Offered by Google',
+                color:  '#2563EB',
+                border: '#BFDBFE',
+                bg:     '#EFF6FF',
+              },
+            ].map((cert) => (
+              <div key={cert.title} style={{
+                background:   cert.bg,
+                border:       `2px solid ${cert.border}`,
+                borderRadius: '16px',
+                padding:      '28px 24px',
+                textAlign:    'center',
+                transition:   'all 0.3s ease',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform  = 'translateY(-4px)'
+                e.currentTarget.style.boxShadow  =
+                  '0 12px 40px rgba(0,0,0,0.1)'
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform  = 'translateY(0)'
+                e.currentTarget.style.boxShadow  = 'none'
+              }}
+              >
+                <div style={{ fontSize: '36px', marginBottom: '12px' }}>
+                  {cert.icon}
+                </div>
+                <h4 style={{
+                  fontSize:     '15px',
+                  fontWeight:   '700',
+                  color:        '#0A0A0A',
+                  marginBottom: '8px',
+                  fontFamily:   'Clash Display, sans-serif',
+                  lineHeight:   '1.3',
+                }}>
+                  {cert.title}
+                </h4>
+                <p style={{
+                  fontSize:  '13px',
+                  color:     '#64748B',
+                  fontWeight:'500',
+                }}>
+                  {cert.issuer}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
 

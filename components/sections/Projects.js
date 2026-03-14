@@ -251,19 +251,27 @@ export default function Projects() {
 =======================================================
 SAMPLE DATA SQL FOR SUPABASE (PROJECTS)
 =======================================================
-INSERT INTO projects (title, description, tech_stack, featured, order_index)
-VALUES 
+
+-- Run this in Supabase SQL Editor to add projects:
+
+INSERT INTO projects
+(title, description, tech_stack, live_url, github_url, featured, order_index)
+VALUES
 (
-  'Django Based Healthcare Appointment Booking System with PRMS',
-  'A comprehensive healthcare platform for booking appointments across various departments including psychology, eye care, dentistry, and diagnostics. Patients can schedule CT scans, MRIs, blood tests, and maintains detailed records.',
+  'Django Healthcare Appointment Booking System',
+  'A comprehensive healthcare platform for booking appointments across multiple departments. Includes specialized doctors, diagnostic services, and detailed patient record management.',
   ARRAY['Django', 'Python', 'SQL', 'HTML', 'CSS', 'Bootstrap'],
+  '',
+  '',
   true,
   1
 ),
 (
-  'MERN Stack Based Experience Listing Website',
-  'A full-stack experience listing platform with real-time availability, filtering, and secure reservations — similar to Airbnb Experiences. Includes multi-image gallery view and various filters.',
+  'MERN Stack Experience Listing Website',
+  'A full-stack experience listing platform with real-time availability, category filtering, and secure reservations. Similar to Airbnb Experiences with multi-image gallery and host profiles.',
   ARRAY['MongoDB', 'Express.js', 'React.js', 'Node.js', 'JavaScript'],
+  '',
+  '',
   true,
   2
 );
