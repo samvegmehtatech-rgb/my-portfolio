@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '../../lib/supabase'
 import { useScrollAnimation } from '../../lib/useScrollAnimation'
+import Skeleton from '../Skeleton'
 
 function ProjectCard({ project, index }) {
   const ref = useScrollAnimation({
@@ -205,9 +206,27 @@ export default function Projects() {
         </div>
 
         {loading ? (
-          <p style={{ color: '#64748B', textAlign: 'center' }}>
-            Loading projects...
-          </p>
+          <div style={{
+            display:             'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap:                 '24px',
+          }}>
+            {[1, 2, 3].map(i => (
+              <div key={i} style={{
+                background:   '#FFFFFF',
+                border:       '1px solid #E2E8F0',
+                borderRadius: '20px',
+                overflow:     'hidden',
+                padding:      '28px',
+              }}>
+                <Skeleton height="200px" radius="12px" mb="20px" />
+                <Skeleton height="24px" width="70%"   mb="12px" />
+                <Skeleton height="16px" width="90%"   mb="8px"  />
+                <Skeleton height="16px" width="60%"   mb="20px" />
+                <Skeleton height="40px" width="120px" radius="100px" />
+              </div>
+            ))}
+          </div>
         ) : projects.length === 0 ? (
           <p style={{ color: '#64748B', textAlign: 'center' }}>
             Projects coming soon. Add them from your admin panel.

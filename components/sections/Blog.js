@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { supabase } from '../../lib/supabase'
 import { useScrollAnimation } from '../../lib/useScrollAnimation'
+import Skeleton from '../Skeleton'
 
 function BlogCard({ post, index }) {
   const ref = useScrollAnimation({ y: 40, duration: 0.6, delay: index * 0.1 })
@@ -189,9 +190,29 @@ export default function Blog() {
         </div>
 
         {loading ? (
-          <p style={{ color: '#64748B', textAlign: 'center' }}>
-            Loading posts...
-          </p>
+          <div style={{
+            display:             'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap:                 '24px',
+          }}>
+            {[1, 2, 3].map(i => (
+              <div key={i} style={{
+                background:   '#FFFFFF',
+                border:       '1px solid #E2E8F0',
+                borderRadius: '20px',
+                overflow:     'hidden',
+                height:       '100%',
+              }}>
+                <Skeleton height="200px" radius="0" mb="28px" />
+                <div style={{ padding: '0 28px 28px' }}>
+                  <Skeleton height="24px" width="80%" mb="12px" />
+                  <Skeleton height="16px" width="100%" mb="8px" />
+                  <Skeleton height="16px" width="60%" mb="20px" />
+                  <Skeleton height="20px" width="40%" />
+                </div>
+              </div>
+            ))}
+          </div>
         ) : posts.length === 0 ? (
           <p style={{ color: '#64748B', textAlign: 'center' }}>
             No posts yet. Write your first blog from the admin panel!

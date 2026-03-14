@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '../../lib/supabase'
 import { useScrollAnimation } from '../../lib/useScrollAnimation'
+import Skeleton from '../Skeleton'
 
 const CATEGORIES = ['All', 'Travel', 'Community', 'Learning', 'Event', 'Personal']
 
@@ -225,9 +226,28 @@ export default function LifeFeed() {
 
         {/* Masonry Grid */}
         {loading ? (
-          <p style={{ color: '#64748B', textAlign: 'center' }}>
-            Loading feed...
-          </p>
+          <div style={{
+            columns:     '3 300px',
+            columnGap:   '20px',
+          }}>
+            {[1, 2, 3].map(i => (
+              <div key={i} style={{
+                background:   '#FFFFFF',
+                border:       '1px solid #E2E8F0',
+                borderRadius: '20px',
+                overflow:     'hidden',
+                padding:      '24px',
+                marginBottom: '20px',
+                breakInside:  'avoid',
+              }}>
+                <Skeleton height="180px" radius="12px" mb="20px" />
+                <Skeleton height="20px" width="30%"   mb="12px" radius="100px" />
+                <Skeleton height="24px" width="80%"   mb="16px"  />
+                <Skeleton height="16px" width="90%"   mb="8px" />
+                <Skeleton height="16px" width="60%"   mb="16px" />
+              </div>
+            ))}
+          </div>
         ) : filtered.length === 0 ? (
           <p style={{ color: '#64748B', textAlign: 'center' }}>
             No posts yet. Add your first life update from admin panel!
